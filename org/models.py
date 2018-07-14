@@ -1,26 +1,25 @@
 from django.db import models
-SANTA_CLARA='SC'
-FREMONT='FR'
+SANTA_CLARA='Santa Clara'
+FREMONT='Fremont'
 SSJC= 'South San Jose'
-WSJC='West san jose'
+WSJC='West San Jose'
 ESJC= 'East San Jose'
 MPTAS='Milpitas'
 MV='Mountain View'
-PA='palo alto'
-MP='melon park'
-NONE= 'None'
+PA='Palo Alto'
+MP='Menlo Park'
+
 # Create your models here.
 CITIES = (
-	(SANTA_CLARA,'SC'),
-	(FREMONT,'FR'),
+	(SANTA_CLARA,'Santa Clara'),
+	(FREMONT,'Fremont'),
 	(SSJC, 'South San Jose'),
-	(WSJC,'West san jose'),
+	(WSJC,'West San Jose'),
 	(ESJC, 'East San Jose'),
 	(MPTAS,'Milpitas'),
 	(MV, 'Mountain View'),
-	(PA,'palo alto'),
-	(MP, 'melon park'),
-	(NONE, 'None'),
+	(PA,'Palo Alto'),
+	(MP, 'Menlo Park'),
 	)
 
 PROGRAMMING = 'Programming'
@@ -74,7 +73,7 @@ class Org_info(models.Model):
 	name=models.CharField(max_length=255)
 	description=models.CharField(max_length=255)
 	participants=models.IntegerField()
-	address=models.CharField(max_length=255, choices=CITIES, default=NONE)
+	address=models.CharField(max_length=255, choices=CITIES, default=SANTA_CLARA)
 	work_hours=models.IntegerField()
 #	project_type=models.CharField(max_length=255, choices=PROJECTS)
 	desired_background=models.CharField(max_length=255)

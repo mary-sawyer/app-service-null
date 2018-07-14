@@ -1,6 +1,29 @@
 from django.db import models
 
 # Create your models here.
+SANTA_CLARA='Santa Clara'
+FREMONT='Fremont'
+SSJC= 'South San Jose'
+WSJC='West San Jose'
+ESJC= 'East San Jose'
+MPTAS='Milpitas'
+MV='Mountain View'
+PA='Palo Alto'
+MP='Menlo Park'
+
+
+CITIES = (
+	(SANTA_CLARA,'Santa Clara'),
+	(FREMONT,'Fremont'),
+	(SSJC, 'South San Jose'),
+	(WSJC,'West San Jose'),
+	(ESJC, 'East San Jose'),
+	(MPTAS,'Milpitas'),
+	(MV, 'Mountain View'),
+	(PA,'Palo Alto'),
+	(MP, 'Menlo Park'),
+        )
+
 
 class Vol_info(models.Model):
 	MALE = 'M'
@@ -24,11 +47,11 @@ class Vol_info(models.Model):
 
 	MUSLIM = 'Muslim Employee Network'
 	LGBTQ = 'LGBTQ'
-	WOMEN = 'Women'
 	VETERAN='Veterans Employee Network'
 	JUNTOS='JUNTOS'
 	BLACK='Black Employee Network'
 	EARLY= 'Early in Career'
+	WOMEN = 'Women Network'
 	NO='None'
 
 	PROGRAMMING = 'Programming'
@@ -64,6 +87,7 @@ class Vol_info(models.Model):
 	(JUNTOS,'JUNTOS'),
 	(BLACK,'Black Employee Network'),
 	(EARLY, 'Early in Career'),
+	(WOMEN, 'Women Network'),
 	(NO,'None')
 	)
 	
@@ -90,7 +114,7 @@ class Vol_info(models.Model):
 
 	
 	name=models.CharField(max_length=255)
-	location=models.CharField(max_length=255)
+	location=models.CharField(max_length=255, choices=CITIES)
 	gender=models.CharField(max_length=255, choices=GENDER_CHOICES)
 	commitment=models.CharField(max_length=255, choices=COM_LEVELS, default=LOW)
 	#prev_exp=models.CharField(max_length=255, choices=PREV_EXP,default=NONE)

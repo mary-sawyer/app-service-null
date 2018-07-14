@@ -3,10 +3,15 @@ from django.http import HttpResponseRedirect
 from .models import Vol_info
 from django.urls import reverse
 from .forms import Volunteer_info_form
+from django.db import connection
 # Create your views here.
 def input(request):
     # if this is a POST request we need to process the form data
 	volunteer_dbobj=Vol_info()
+	match_cursor = connection.cursor()
+	match_cursor.execute("""select * from matchscore""")
+	data = match_cursor.fetchall()
+
 	if(request.method == 'POST'):
         # create a form instance and populate it with data from the request:
 		form = Volunteer_info_form(data=request.POST)
@@ -20,6 +25,7 @@ def input(request):
 			form.skill=form.cleaned_data.get('skill')
 			form.soc=form.cleaned_data.get('soc')
 			form.p_type=form.cleaned_data.get('p_type')
+			form.commitment=form.cleaned_data.get('commitment')
 			print("Form's Valid. YAYYY!")
 			volunteer_dbobj.name=form.name;
 			volunteer_dbobj.location=form.location;
@@ -29,6 +35,7 @@ def input(request):
 			volunteer_dbobj.skills=form.skill;
 			volunteer_dbobj.society=form.soc;
 			volunteer_dbobj.project=form.p_type
+			volunteer_dbobj.commitment=form.commitment
 
 			volunteer_dbobj.save();
 			
@@ -36,7 +43,5 @@ def input(request):
     # if a GET (or any other method) we'll create a blank form
 	else:
 		form = Volunteer_info_form()
-	return render(request, 'input.html', {'form':form , 'volunteer_info': Vol_info.objects.all() }, )
+	return render(request, 'input.html', {'form':form , 'data':data }, )
 	
-
-

@@ -1,5 +1,23 @@
 {% extends "index.html" %}
 {% block content %}
+<h1>Volunteer-Organization Matchups</h1>
+<table>
+  <tr>
+          <th><b>Volunteer Name</b></th>
+          <th><b>Organization Name</b></th>
+          <th><b>Match Score</b></th>
+  </tr>
+{% for a,b,c in data %}
+  <tr>
+        <td>{{ a }}</td>
+        <td>{{ b }}</td>
+        <td>{{ c }}</td>
+  </tr>
+{% endfor %}
+</table>
+
+
+<h1>Enrollment:</h1>
 <form action="" method="POST">
 
 {% csrf_token %}
@@ -17,5 +35,23 @@
     </div>
 
 </form>
+
+<!--
+<h1>Volunteer Matchups</h1>
+<table>
+  <tr>
+          <th><b>Volunteer Name</b></th>
+	  <th><b>Organization Name</b></th>
+	  <th><b>Match Score</b></th>
+  </tr>
+{% for a,b,c in data %}
+  <tr>
+	<td>{{ a }}</td>
+	<td>{{ b }}</td>
+	<td>{{ c }}</td>
+  </tr>
+{% endfor %}
+</table>
+-->
 {% endblock %}
 
