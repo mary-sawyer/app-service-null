@@ -1,3 +1,4 @@
+<!--
 <html>
 {% load static %} 
 <script type="text/javascript" src="{% static "appservicenull/fusioncharts/fusioncharts.js" %}"></script>
@@ -12,3 +13,121 @@
 <input type="submit" value="Organizer?" onclick="window.location='{% url 'dashboard' %}';" />
 </HTML>
 
+--!>
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+	<title>SM!LE PANDA PROJECT</title>
+
+	<meta charset="utf-8" />
+
+	{% load staticfiles %}
+
+	<link rel="stylesheet" href="{% static 'appservicenull/css/bootstrap.min.css' %}" type = "text/css"/>
+
+	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+
+	
+
+	<style type="text/css">
+
+		html,
+
+		body {
+
+		  height:100%
+
+		}
+
+	</style>
+
+</head>
+
+
+
+<body class="body" style="background-color:#f6f6f6">
+
+	<div class="container-fluid" style="min-height:95%; ">
+
+		<div class="row">
+
+			  <div class="col-sm-2">
+
+				  <br>
+
+				  <center>
+
+					<img src="{% static 'appservicenull/img/image.png' %}" class="responsive-img" style='max-height:100px;' alt="face">
+
+				  </center>
+
+			  </div>
+
+			  <div class="col-sm-10">
+
+				  <br>	
+
+				  <center>
+
+                      <h1><b>SM!LE Panda</b></h1>
+
+                      <br>
+
+				  </center>
+
+			  </div>
+
+		</div><hr>
+
+
+			  <div class="row">
+
+				  <div>
+
+					  <ul class="nav nav-tabs" id="myTab">
+                          <li><a href='https://app.powerbi.com/view?r=eyJrIjoiNWJmZGViOWYtMzhhOC00M2QzLTgzNTktMmY5NWZhMWZlMjM1IiwidCI6IjY2YjY2MzUzLTNiNzYtNGU0MS05ZGMzLWZlZTMyOGJkNDAwZSIsImMiOjZ9' data-toggle="tab"><h5>Volunteer Dashboard</h5></a></li>
+
+                          <li><a href='https://app.powerbi.com/view?r=eyJrIjoiZjBlYTE3ZjQtMGJmNi00YzQwLWE5NDUtM2I5ODlkZmQzMTAzIiwidCI6IjY2YjY2MzUzLTNiNzYtNGU0MS05ZGMzLWZlZTMyOGJkNDAwZSIsImMiOjZ9' data-toggle="tab"><h5>Organizer Dashboard</h5></a></li>
+
+                          <li><a href='/org/' data-toggle="tab"><h5>Organizer? Enroll Now</h5></a></li>
+			<li><a href='/volunteer/' data-toggle="tab"><h5>Volunteer? Enroll now</h5></a></li>
+
+					  </ul>
+
+				  </div>
+
+			  </div>
+<div class='container-fluid'>
+
+                        <br><br>
+
+                           {% block content %}
+				<p>Welcome to SM!LE Panda! Match with a project and make someone smile! :)<br>
+SEE HOW YOUR PEERS HAVE BEEN DOING. WANNA PUSH YOURSELF TO VOLUNTEER MORE? <br>
+<p>Ranking data:</p>
+{% load static %} 
+<script type="text/javascript" src="{% static "appservicenull/fusioncharts/fusioncharts.js" %}"></script>
+        <div id="chart-1">{{ output|safe }}</div>
+
+        
+                           {% endblock %}
+                        </div>
+</div>
+<footer>
+
+		<div class="container-fluid" style='margin-left:15px'>
+
+			<p><a href="#" target="blank"></a> </p>
+
+		</div>
+
+	</footer>
+
+</body>
+</html>
