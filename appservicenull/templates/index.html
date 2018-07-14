@@ -2,6 +2,7 @@
 <html>
 {% load static %} 
 <script type="text/javascript" src="{% static "appservicenull/fusioncharts/fusioncharts.js" %}"></script>
+
 <H1> HELOOOOOOO!!!!! </H1>
 
 <p>Ranking data:</p>
@@ -11,6 +12,7 @@
 
 <input type="submit" value="Volunteer?" onclick="window.location='{% url 'input' %}';" />
 <input type="submit" value="Organizer?" onclick="window.location='{% url 'dashboard' %}';" />
+
 </HTML>
 
 --!>
@@ -113,7 +115,8 @@ SEE HOW YOUR PEERS HAVE BEEN DOING. WANNA PUSH YOURSELF TO VOLUNTEER MORE? <br>
 <p>Ranking data:</p>
 {% load static %} 
 <script type="text/javascript" src="{% static "appservicenull/fusioncharts/fusioncharts.js" %}"></script>
-        <div id="chart-1">{{ output|safe }}</div>
+<script type="text/javascript" src="{% static "appservicenull/fusioncharts/themes/fusioncharts.theme.fint.js" %}"></script>
+        <div id="chart-1" name="theme-options" value="fint">{{ output|safe }}</div>
 
         
                            {% endblock %}

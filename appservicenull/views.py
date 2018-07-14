@@ -19,8 +19,8 @@ def index(request):
 		"caption": "Volunteer Rank",
 		"subCaption": "See how your department compares!",
 		"xAxisName": "Department",
-		"yAxisName": "Employees",
-		"theme": "zune"
+		"yAxisName": "Volunteers",
+		"theme": "fint"
 	}
 	
 	dataSource['data'] = []
@@ -29,7 +29,6 @@ def index(request):
 		data['label'] = i[0]
 		data['value'] = i[1]
 		dataSource['data'].append(data)
-	print(json.dumps(dataSource))
 	# Create an object for the Column 2D chart using the FusionCharts class constructor
 	column2D = FusionCharts("column2D", "ex1" , "600", "350", "chart-1", "json", dataSource)
 	return render(request,'index.html', {'output': column2D.render()})
