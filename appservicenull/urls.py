@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',views.index, name='index'),
     url(r'volunteer/', include('volunteer.urls')),
+    url(r'org/',include('org.urls'))
 ]

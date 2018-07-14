@@ -15,18 +15,21 @@ def input(request):
 			form.name=form.cleaned_data.get('name')
 			form.location=form.cleaned_data.get('location')
 			form.gender=form.cleaned_data.get('gender')
-			form.prev_exp=form.cleaned_data.get('prev_exp')
+#			form.prev_exp=form.cleaned_data.get('prev_exp')
 			form.job=form.cleaned_data.get('job')
-			form.skills=form.cleaned_data.get('skills')
-			form.society=form.cleaned_data.get('society')
+			form.skill=form.cleaned_data.get('skill')
+			form.soc=form.cleaned_data.get('soc')
+			form.p_type=form.cleaned_data.get('p_type')
 			print("Form's Valid. YAYYY!")
 			volunteer_dbobj.name=form.name;
 			volunteer_dbobj.location=form.location;
 			volunteer_dbobj.gender=form.gender;
-			volunteer_dbobj.prev_exp=form.prev_exp;
+			#volunteer_dbobj.prev_exp=form.prev_exp;
 			volunteer_dbobj.job=form.job;
-			volunteer_dbobj.skills=form.skills;
-			volunteer_dbobj.society=form.society;
+			volunteer_dbobj.skills=form.skill;
+			volunteer_dbobj.society=form.soc;
+			volunteer_dbobj.project=form.p_type
+
 			volunteer_dbobj.save();
 			
 			return HttpResponseRedirect(reverse('input'),)
@@ -34,3 +37,6 @@ def input(request):
 	else:
 		form = Volunteer_info_form()
 	return render(request, 'input.html', {'form':form , 'volunteer_info': Vol_info.objects.all() }, )
+	
+
+
