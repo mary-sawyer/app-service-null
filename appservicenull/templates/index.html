@@ -1,6 +1,12 @@
-<HTML>
+<html>
+{% load static %} 
+<script type="text/javascript" src="{% static "appservicenull/fusioncharts/fusioncharts.js" %}"></script>
 <H1> HELOOOOOOO!!!!! </H1>
-<!---<='{% url 'input' %}'> </A>--!>
+
+<p>Ranking data:</p>
+<body>
+	<div id="chart-1">{{ output|safe }}</div>
+</body>
 
 <input type="submit" value="Volunteer?" onclick="window.location='{% url 'input' %}';" />
 <input type="submit" value="Organizer?" onclick="window.location='{% url 'dashboard' %}';" />
